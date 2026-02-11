@@ -1,0 +1,100 @@
+/* Reset-ish */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  height: 70px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  color: #fff;
+  position: relative;
+}
+
+/* Logo */
+.logo h3 {
+  font-weight: 600;
+}
+
+.logo h4 {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Links */
+.contents {
+  display: flex;
+  gap: 28px;
+}
+
+.contents a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.contents a:hover {
+  color: #00bcd4;
+}
+
+/* Burger (hidden on desktop) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+/* Burger animation */
+.burger.toggle span:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+
+.burger.toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.toggle span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 900px) {
+
+  .contents {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 220px;
+    background: #111;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: 0.3s ease;
+    border-left: 1px solid #222;
+  }
+
+  .contents.active {
+    transform: translateX(0);
+  }
+
+  .burger {
+    display: flex;
+  }
+}

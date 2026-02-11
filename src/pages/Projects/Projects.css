@@ -1,0 +1,47 @@
+.projects {
+  width: 100%;
+  height: calc(100vh - 120px); /* adjust if navbar height differs */
+  padding: 24px 32px;
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading */
+.projects h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Grid container */
+.projects-container {
+  flex: 1;                 /* take remaining height */
+  overflow-y: auto;        /* SCROLL HERE */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap: 24px;
+  padding-right: 6px;      /* scrollbar spacing */
+}
+
+/* Optional scrollbar styling */
+.projects-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}

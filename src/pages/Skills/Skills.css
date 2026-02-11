@@ -1,0 +1,64 @@
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ICONS SECTION (placeholder only) */
+.icons {
+  height: 120px;
+  background: #e6e6e6;
+}
+
+/* SKILLS GRID — DESKTOP */
+.skillCat {
+  flex: 1;
+  padding: 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  overflow-y: auto;
+}
+
+/* Center second row cards */
+.skillCat > :nth-child(5) {
+  grid-column: 2;
+}
+
+.skillCat > :nth-child(6) {
+  grid-column: 3;
+}
+
+/* 💻 Small laptops */
+@media (max-width: 1200px) {
+  .skillCat {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 40px;
+  }
+
+  .skillCat > :nth-child(5),
+  .skillCat > :nth-child(6) {
+    grid-column: auto;
+  }
+}
+
+/* 📱 Tablets */
+@media (max-width: 900px) {
+  .skillCat {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .icons {
+    height: 80px;
+  }
+
+  .skillCat {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+}

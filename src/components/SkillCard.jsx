@@ -1,16 +1,33 @@
+
 import React from 'react'
 import './SkillCard.css'
 
-const SkillCard = ({skillCat}) => {
+const SkillCard = ({ skillCat }) => {
   return (
-    <div className='skillCard'>
-        <h4 className='skillName'>{skillCat.title}</h4>
-        <ul>
-            {skillCat.skills.map((skill, index) => (
-                <li key={index}>{skill}</li>
-            ))}
-        </ul>
-    </div>
+    <article className="skillCard">
+
+      <div className="skillCard-header">
+        <h3 className="skillName">
+          {skillCat.title}
+        </h3>
+
+        <span className="skill-count">
+          {skillCat.skills.length} Skills
+        </span>
+      </div>
+
+      <div className="skill-list">
+        {skillCat.skills.map((skill, index) => (
+          <span
+            className="skill-item"
+            key={`${skillCat.id}-${skill}`}
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+
+    </article>
   )
 }
 

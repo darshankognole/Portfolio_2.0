@@ -1,47 +1,123 @@
+
+/* ===== Projects page: route-specific layout ===== */
+
+/* Keep the existing Dashboard structure, but correct its
+   positioning while the Projects page is active. */
+
+#root:has(.projects) > div > div:first-child {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+}
+
+/* Dashboard content layer */
+#root:has(.projects) > div > section {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 100vh;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  z-index: 1 !important;
+}
+
+/* Remove Dashboard header background and blur
+   only when Projects is rendered */
+#root:has(.projects) header:has(.projects) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ===== Main Projects Section ===== */
+
 .projects {
   width: 100%;
-  height: calc(100vh - 120px); /* adjust if navbar height differs */
-  padding: 24px 32px;
-  background-color: #f5f7fa;
+  min-height: calc(100vh - 76px);
+  height: auto;
+
+  padding: 30px 5% 35px;
+
   display: flex;
   flex-direction: column;
+
+  background: transparent !important;
+  color: #fff;
+
+  position: relative;
+  z-index: 2;
 }
 
-/* Heading */
-.projects h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+/* ===== Heading ===== */
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 28px;
+  flex-shrink: 0;
 }
 
-/* Grid container */
+.projects-header h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.projects-header p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* ===== Grid ===== */
+
 .projects-container {
-  flex: 1;                 /* take remaining height */
-  overflow-y: auto;        /* SCROLL HERE */
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 per row */
-  gap: 24px;
-  padding-right: 6px;      /* scrollbar spacing */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  align-items: stretch;
+  gap: 22px;
+
+  /* No nested scrolling */
+  overflow: visible;
+  height: auto;
+  flex: 0 0 auto;
 }
 
-/* Optional scrollbar styling */
-.projects-container::-webkit-scrollbar {
-  width: 6px;
-}
+/* ===== Tablet ===== */
 
-.projects-container::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 10px;
-}
-
-/* Responsive */
 @media (max-width: 1024px) {
+  .projects {
+    padding: 28px 4%;
+  }
+
   .projects-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* ===== Mobile ===== */
+
 @media (max-width: 640px) {
+  .projects {
+    padding: 22px 18px 30px;
+  }
+
+  .projects-header h2 {
+    font-size: 26px;
+  }
+
+  .projects-header p {
+    font-size: 13px;
+  }
+
   .projects-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
   }
 }

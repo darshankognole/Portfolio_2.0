@@ -1,168 +1,558 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-.home {
+/* ===== HOME PAGE ===== */
+
+.home-page {
   width: 100%;
-  min-height: 85vh;
-  background-color: #f5f7fa;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 24px;
+  min-height: calc(100vh - 70px);
+  padding: 65px 7% 35px;
+  background: transparent;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* ===== CENTRAL SECTION ===== */
-.central {
+/* ===== HERO LAYOUT ===== */
+
+.hero-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr;
+  align-items: center;
+  gap: 75px;
+}
+
+/* ===== PROFILE ===== */
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.profile {
+  width: 290px;
+  height: 290px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 30% 20%, #303c52, #111827 65%);
+
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 55px rgba(56, 189, 248, 0.12);
+}
+
+.profile span {
+  font-size: 75px;
+  font-weight: 700;
+  letter-spacing: -5px;
+  color: #e2e8f0;
+}
+
+.profile-status {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 60px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px;
+  gap: 9px;
+  color: #a1a1aa;
+  font-size: 13px;
 }
 
-/* Profile placeholder */
-.profile {
-  width: 260px;
-  height: 260px;
-  background-color: #111;
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
   border-radius: 50%;
-  flex-shrink: 0;
+  box-shadow: 0 0 10px #22c55e;
 }
 
-/* Right data */
-.data {
+/* ===== INTRODUCTION ===== */
+
+.hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: start;
-  gap: 28px;
-  max-width: 620px;
-}
-.intro{
-     display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: start;
+  gap: 27px;
 }
 
-/* Intro */
+.intro-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.intro h1 {
+  font-size: clamp(30px, 4vw, 45px);
+  font-weight: 700;
+  margin-top: 15px;
+  line-height: 1.2;
+  color: #f8fafc;
+}
+
+.intro h1 span {
+  color: #38bdf8;
+}
+
 .intro h2 {
-  font-size: 30px;
-  margin-bottom: 6px;
+  font-size: 23px;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-top: 12px;
 }
 
-.intro p {
+.intro-description {
+  max-width: 620px;
+  color: #94a3b8;
   font-size: 15px;
-  color: #555;
+  line-height: 1.9;
+  margin-top: 15px;
 }
 
-/* Roles */
+/* ===== ROLE BADGES ===== */
+
 .roles {
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
-.roles p {
-  background-color: #e0f2f1;
-  padding: 10px 16px;
-  border-radius: 20px;
+.roles span {
+  padding: 10px 17px;
+  border: 1px solid rgba(56,189,248,0.25);
+  background: rgba(56,189,248,0.08);
+  color: #bae6fd;
+  border-radius: 30px;
   font-size: 13px;
   font-weight: 500;
+  transition: 0.3s ease;
 }
 
-/* ===== INFO BOXES ===== */
+.roles span:hover {
+  background: rgba(56,189,248,0.18);
+  border-color: #38bdf8;
+  transform: translateY(-3px);
+}
+
+/* ===== INFORMATION CARDS ===== */
+
 .info {
-  display: flex;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
 }
 
-.info > div {
-  flex: 1;
-  background-color: #fff;
-  padding: 14px;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.info-card {
+  padding: 19px 16px;
+  min-width: 0;
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 13px;
+  transition: 0.3s ease;
 }
 
-/* Title row inside info */
-.info > div > div {
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56,189,248,0.5);
+  background: rgba(255,255,255,0.09);
+}
+
+.info-heading {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
+  gap: 9px;
+  color: #38bdf8;
 }
 
-.info span {
-  font-size: 14px;
-  color: #555;
-  margin-left: 26px; /* align text with icon */
+.info-heading h3 {
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.info-card p {
+  margin-top: 13px;
+  margin-left: 28px;
+  color: #94a3b8;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* ===== ACTION BUTTONS ===== */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-actions a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  color: #020617;
+  background: #38bdf8;
+}
+
+.primary-btn:hover {
+  background: #7dd3fc;
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.04);
+}
+
+.secondary-btn:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-3px);
 }
 
 /* ===== FOOTER ===== */
-footer {
-  /* margin-top: 60px; */
+
+.home-footer {
   text-align: center;
+  margin-top: 65px;
 }
 
-footer h3 {
-  margin-bottom: 16px;
-  font-size: 18px;
+.home-footer > p {
+  color: #cbd5e1;
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
-/* Social links */
-.links {
+.social-links {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
-.links div {
-  width: 44px;
-  height: 44px;
-  background-color: #111;
-  border-radius: 50%;
+.social-links a {
+  width: 43px;
+  height: 43px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.25s ease, background-color 0.25s ease;
+  color: #cbd5e1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transition: 0.3s ease;
 }
 
-.links svg {
-  color: #fff;
+.social-links a:hover {
+  color: #020617;
+  background: #38bdf8;
+  transform: translateY(-4px);
 }
 
-.links div:hover {
-  transform: scale(1.12);
-  background-color: #00bcd4;
+.footer-caption {
+  display: block;
+  margin-top: 16px;
+  color: #64748b;
+  font-size: 12px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .central {
-    flex-direction: column;
-    text-align: center;
+/* ===== TABLET ===== */
+
+@media (max-width: 900px) {
+  .home-page {
+    padding: 50px 5% 30px;
   }
 
-  .data {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 650px;
+  }
+
+  .profile {
+    width: 210px;
+    height: 210px;
+  }
+
+  .profile span {
+    font-size: 60px;
+  }
+
+  .hero-content {
+    text-align: center;
     align-items: center;
   }
 
+  .intro-description {
+    text-align: center;
+  }
+
+  .roles {
+    justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
   .info {
+    width: 100%;
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 550px) {
+  .home-page {
+    padding: 35px 18px;
+  }
+
+  .profile {
+    width: 165px;
+    height: 165px;
+  }
+
+  .profile span {
+    font-size: 48px;
+  }
+
+  .intro h1 {
+    font-size: 30px;
+  }
+
+  .intro h2 {
+    font-size: 19px;
+  }
+
+  .intro-description {
+    font-size: 14px;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    text-align: left;
+  }
+
+  .hero-actions {
     flex-direction: column;
     width: 100%;
   }
 
-  .info span {
-    margin-left: 0;
+  .hero-actions a {
+    width: 100%;
+  }
+
+  .home-footer {
+    margin-top: 45px;
+  }
+}
+
+/* =========================================
+   PARTICLES BACKGROUND FIX
+========================================= */
+
+/* Remove blur and background from Dashboard's
+   outer header, which wraps Navbar and Outlet */
+header:has(.home-page) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Keep the complete Home section transparent */
+.home-page {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+
+  min-height: calc(100vh - 100px);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep content above particles */
+.hero-container,
+.profile-wrapper,
+.hero-content,
+.home-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Make information cards less opaque
+   so particles remain visible behind them */
+.info-card {
+  background: rgba(15, 23, 42, 0.35) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.info-card:hover {
+  background: rgba(15, 23, 42, 0.45) !important;
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Role badges */
+.roles span {
+  background: rgba(56, 189, 248, 0.08);
+}
+
+/* =========================================
+   FOOTER ALIGNMENT FIX
+========================================= */
+
+.home-footer {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 45px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.social-links {
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================================
+   RESPONSIVE FOOTER
+========================================= */
+
+@media (max-width: 900px) {
+  .home-footer {
+    margin-top: 45px;
+    padding-top: 25px;
+  }
+}
+
+/* ==========================================
+   1. PARTICLES – FULL SCREEN BACKGROUND
+========================================== */
+
+/* Target the existing Particles wrapper in Dashboard */
+#root > div:has(.home-page) > div:first-child {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+}
+
+/* Keep Dashboard content above the particles */
+#root > div:has(.home-page) > section {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100%;
+  min-height: 100vh;
+  align-self: stretch;
+}
+
+/* Remove the unwanted blur from Dashboard's outer header */
+header:has(.home-page) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Home background must remain transparent */
+.home-page {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  min-height: calc(100vh - 76px);
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+/* Keep all Home content above the canvas */
+.hero-container,
+.home-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================
+   2. INFORMATION CARDS – TRANSPARENT
+========================================== */
+
+/* Higher specificity than your original .info > div */
+.home-page .info > .info-card {
+  background: rgba(15, 23, 42, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background 0.3s ease, border-color 0.3s ease,
+              transform 0.3s ease;
+}
+
+.home-page .info > .info-card:hover {
+  background: rgba(15, 23, 42, 0.45) !important;
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Keep card headings readable */
+.home-page .info-card .info-heading h3 {
+  color: #e2e8f0;
+}
+
+.home-page .info-card > p {
+  color: #cbd5e1;
+}
+
+/* ==========================================
+   3. CONNECT SECTION – BOTTOM ALIGNMENT
+========================================== */
+
+.home-page .home-footer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: 30px;
+  padding: 25px 0 15px;
+  text-align: center;
+}
+
+.home-page .social-links {
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ==========================================
+   4. RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+  .home-page {
+    min-height: calc(100vh - 65px);
+  }
+
+  .home-page .home-footer {
+    margin-top: 35px;
+    padding-bottom: 20px;
   }
 }

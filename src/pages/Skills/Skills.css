@@ -1,64 +1,166 @@
-section {
+
+/* =====================================
+   SKILLS PAGE - ROUTE LAYOUT
+===================================== */
+
+/* Particles background: full viewport
+   only while Skills page is active */
+
+#root:has(.skills-page) > div > div:first-child {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+}
+
+/* Dashboard content layer */
+
+#root:has(.skills-page) > div > section {
+  position: relative !important;
+  width: 100% !important;
   min-height: 100vh;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  z-index: 1 !important;
+}
+
+/* Remove header background and blur
+   only on Skills route */
+
+#root:has(.skills-page) header:has(.skills-page) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* =====================================
+   MAIN SKILLS SECTION
+===================================== */
+
+.skills-page {
+  width: 100%;
+  min-height: calc(100vh - 76px);
+  height: auto;
+
+  padding: 32px 5% 40px;
+
   display: flex;
   flex-direction: column;
+
+  position: relative;
+  z-index: 2;
+
+  background: transparent !important;
+  color: #fff;
 }
 
-/* ICONS SECTION (placeholder only) */
-.icons {
-  height: 120px;
-  background: #e6e6e6;
+/* =====================================
+   SKILLS HEADER
+===================================== */
+
+.skills-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px;
+  flex-shrink: 0;
 }
 
-/* SKILLS GRID — DESKTOP */
+.skills-eyebrow {
+  display: inline-block;
+  color: #43c9dc;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.skills-header h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.skills-header p {
+  max-width: 550px;
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =====================================
+   SKILLS GRID
+===================================== */
+
 .skillCat {
-  flex: 1;
-  padding: 40px 60px;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  overflow-y: auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  align-items: stretch;
+  gap: 22px;
+
+  /* Never create an independent scroll */
+  height: auto;
+  overflow: visible;
+  flex: 0 0 auto;
 }
 
-/* Center second row cards */
-.skillCat > :nth-child(5) {
-  grid-column: 2;
-}
+/* =====================================
+   RESPONSIVE - SMALL DESKTOP
+===================================== */
 
-.skillCat > :nth-child(6) {
-  grid-column: 3;
-}
-
-/* 💻 Small laptops */
 @media (max-width: 1200px) {
   .skillCat {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 30px 40px;
-  }
-
-  .skillCat > :nth-child(5),
-  .skillCat > :nth-child(6) {
-    grid-column: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* 📱 Tablets */
+/* =====================================
+   RESPONSIVE - TABLET
+===================================== */
+
 @media (max-width: 900px) {
+  .skills-page {
+    padding: 28px 4% 35px;
+  }
+
   .skillCat {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 }
 
-/* 📱 Mobile */
+/* =====================================
+   RESPONSIVE - MOBILE
+===================================== */
+
 @media (max-width: 600px) {
-  .icons {
-    height: 80px;
+  .skills-page {
+    padding: 24px 18px 30px;
+  }
+
+  .skills-header {
+    margin-bottom: 25px;
+  }
+
+  .skills-header h2 {
+    font-size: 27px;
+  }
+
+  .skills-header p {
+    font-size: 13px;
   }
 
   .skillCat {
-    grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
 }

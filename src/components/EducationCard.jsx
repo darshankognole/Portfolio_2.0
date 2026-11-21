@@ -1,5 +1,6 @@
 import React from 'react'
 import './EducationCard.css'
+import { GraduationCap, School } from 'lucide-react'
 
 const education = [
   {
@@ -27,7 +28,9 @@ const EducationCard = () => {
     <div className="educationCard">
       {education.map((ed, index) => (
         <div className="educationItem" key={index}>
-          <div className="symbolLogo"></div>
+          <div className="">
+            <GraduationCap size={60}/>
+          </div>
 
           <div className="details">
             <h4 className="certification">{ed.certification}</h4>

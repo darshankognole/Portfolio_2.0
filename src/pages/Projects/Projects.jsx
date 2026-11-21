@@ -1,6 +1,7 @@
+
 import React from 'react'
 import ProjectCard from '../../components/ProjectCard'
-import { useProjectStore } from '../../../../../Protfolio react learning/portfolio/src/store/useProjectStore'
+import { useProjectStore } from '../../stores/useProjectsStore'
 import './Projects.css'
 
 const Projects = () => {
@@ -8,13 +9,21 @@ const Projects = () => {
 
   return (
     <section className="projects">
-      <h2>Projects</h2>
+
+      <div className="projects-header">
+        <h2>My Projects</h2>
+        <p>Explore some of the applications I've developed.</p>
+      </div>
 
       <div className="projects-container">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard
+            key={project.id}
+            project={project}
+          />
         ))}
       </div>
+
     </section>
   )
 }

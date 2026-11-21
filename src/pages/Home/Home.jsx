@@ -110,7 +110,7 @@ const Home = () => {
 
         <div className="social-links">
           <a
-            href="https://github.com/your-username"
+            href="https://github.com/darshankognole"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -119,7 +119,7 @@ const Home = () => {
           </a>
 
           <a
-            href="https://linkedin.com/in/your-username"
+            href="https://linkedin.com/in/darshan-kognole"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"

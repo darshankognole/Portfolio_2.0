@@ -16,7 +16,7 @@ export const useProjectStore = create(() => ({
             "HTML",
             "CSS",
             ],
-            githubLink: "https://github.com/your-username/bus-reservation",
+            githubLink: "https://github.com/darshankognole/Reservation-API",
             liveLink: "",
         },
         {
@@ -40,7 +40,7 @@ export const useProjectStore = create(() => ({
             description:
             "React-based appointment booking application with reusable components, API integration, and responsive design.",
             techStack: ["React", "JavaScript", "HTML", "CSS"],
-            githubLink: "https://github.com/your-username/appointment-booking",
+            githubLink: "https://github.com/darshankognole/Hospital-management-system",
             liveLink: "",
         }
     ]
